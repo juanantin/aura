@@ -19,15 +19,32 @@ html, body{
   overflow-x: hidden;
 }
 
+.bg-video{
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.bg-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 200, 80, 0.18) 0%, rgba(120, 80, 10, 0.08) 30%, rgba(5,3,10,0) 60%),
+    linear-gradient(180deg, rgba(6,4,12,0.72) 0%, rgba(12,8,5,0.6) 55%, rgba(18,11,5,0.78) 100%);
+}
+
 #stars{
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(255, 200, 80, 0.18) 0%, rgba(120, 80, 10, 0.08) 30%, rgba(5,3,10,0) 60%),
-    linear-gradient(180deg, #06040c 0%, #0c0805 55%, #120b05 100%);
 }
 
 .page{
@@ -92,19 +109,74 @@ html, body{
   50% { transform: translateY(-10px) rotate(var(--r, -4deg)); opacity: 1; }
 }
 
-.logo{
-  font-size: clamp(52px, 14vw, 92px);
-  line-height: 1;
+.logo-wrap{
+  position: relative;
+  display: inline-block;
   margin: 6px 0 14px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  background: linear-gradient(180deg, #fff6d8 0%, #ffd45c 22%, #d99a1f 55%, #ffe28a 75%, #8a5a12 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 18px rgba(246, 199, 74, 0.55)) drop-shadow(0 0 40px rgba(246, 199, 74, 0.25));
+  max-width: 92vw;
 }
-.logo .dollar{ font-weight: 800; }
+
+.logo-img{
+  display: block;
+  width: clamp(260px, 62vw, 520px);
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(246, 199, 74, 0.55)) drop-shadow(0 0 46px rgba(246, 199, 74, 0.3));
+  animation: logo-pulse 4s ease-in-out infinite;
+}
+
+@keyframes logo-pulse{
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(246, 199, 74, 0.5)) drop-shadow(0 0 44px rgba(246, 199, 74, 0.28)); }
+  50% { filter: drop-shadow(0 0 30px rgba(255, 226, 138, 0.75)) drop-shadow(0 0 60px rgba(246, 199, 74, 0.4)); }
+}
+
+.shimmer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.75) 50%, transparent 60%);
+  background-size: 220% 100%;
+  background-position: 150% 0;
+  mix-blend-mode: overlay;
+  -webkit-mask-image: url(images/aura.png);
+  mask-image: url(images/aura.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  animation: shimmer-sweep 4.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes shimmer-sweep{
+  0%, 35% { background-position: 150% 0; }
+  60%, 100% { background-position: -50% 0; }
+}
+
+.sparkle{
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fffdf3;
+  box-shadow: 0 0 8px 2px rgba(255, 246, 210, 0.9), 0 0 16px 6px rgba(246, 199, 74, 0.6);
+  opacity: 0;
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+.s1{ top: 10%; left: 8%;  animation-delay: 0s;   }
+.s2{ top: 68%; left: 4%;  animation-delay: .6s;  width: 4px; height: 4px; }
+.s3{ top: 20%; left: 30%; animation-delay: 1.4s; width: 4px; height: 4px; }
+.s4{ top: 78%; left: 34%; animation-delay: .3s;  }
+.s5{ top: 12%; left: 62%; animation-delay: 1.9s; width: 5px; height: 5px; }
+.s6{ top: 66%; left: 70%; animation-delay: .9s;  }
+.s7{ top: 24%; left: 90%; animation-delay: 1.6s; width: 4px; height: 4px; }
+.s8{ top: 74%; left: 94%; animation-delay: 2.2s; width: 5px; height: 5px; }
+
+@keyframes twinkle{
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
 
 .tagline{
   font-size: clamp(18px, 4vw, 24px);
@@ -233,9 +305,37 @@ html, body{
 .drop{ fill: #f0c04a; filter: drop-shadow(0 0 6px rgba(240,192,74,.6)); }
 .bar2{ fill: #f0c04a; }
 
+/* ---------- Bottom glow video ---------- */
+
+.bottom-glow-wrap{
+  position: relative;
+  width: 100%;
+  height: 260px;
+  margin: -60px 0 -30px;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse 60% 100% at 50% 60%, #000 40%, transparent 85%);
+  mask-image: radial-gradient(ellipse 60% 100% at 50% 60%, #000 40%, transparent 85%);
+}
+
+.bottom-glow{
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 140%;
+  max-width: 900px;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
 /* ---------- Footer ---------- */
 
 .footer{
+  position: relative;
+  z-index: 1;
   width: 100%;
   display: flex;
   justify-content: space-around;
