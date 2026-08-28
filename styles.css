@@ -78,6 +78,30 @@ html, body{
   max-width: 92vw;
 }
 
+.spark{
+  position: absolute;
+  color: #fff8dc;
+  text-shadow: 0 0 6px #fff3c4, 0 0 14px var(--gold), 0 0 22px var(--gold);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.2) rotate(0deg);
+  animation: spark-pop 2.8s ease-in-out infinite;
+}
+.sp1{ top: 6%;   left: 4%;   font-size: 16px; animation-delay: 0s;    }
+.sp2{ top: 62%;  left: -2%;  font-size: 12px; animation-delay: 0.9s;  }
+.sp3{ top: 12%;  left: 30%;  font-size: 10px; animation-delay: 1.7s;  }
+.sp4{ top: -4%;  left: 58%;  font-size: 14px; animation-delay: 0.4s;  }
+.sp5{ top: 30%;  right: 2%;  font-size: 18px; animation-delay: 1.3s;  }
+.sp6{ top: 70%;  right: 10%; font-size: 11px; animation-delay: 2.1s;  }
+.sp7{ top: 44%;  left: 46%;  font-size: 9px;  animation-delay: 2.5s;  }
+.sp8{ bottom: -6%; left: 18%; font-size: 13px; animation-delay: 1.0s; }
+
+@keyframes spark-pop{
+  0%, 100%{ opacity: 0; transform: scale(0.2) rotate(0deg); }
+  8%{ opacity: 1; transform: scale(1.15) rotate(20deg); }
+  18%{ opacity: 0; transform: scale(0.3) rotate(40deg); }
+}
+
 .logo-img{
   display: block;
   width: clamp(200px, 46vw, 400px);
