@@ -157,6 +157,12 @@ html, body{
 }
 .btn svg{ color: var(--gold); flex-shrink: 0; }
 
+.btn-icon-only{
+  padding: 14px;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+}
+
 .btn-copy-text{ display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
 .btn-copy-label{ font-size: 15px; }
 .btn-copy-sub{ font-size: 11px; color: var(--text-dim); }
@@ -212,19 +218,15 @@ html, body{
   position: absolute;
   right: 10px;
   bottom: 8px;
-  width: 56px;
-  height: 34px;
-  opacity: 0.95;
+  width: 48px;
+  height: 48px;
 }
-.stat-icon svg{ width: 100%; height: 100%; overflow: visible; }
-
-.coin{ fill: #f0c04a; stroke: #a9761f; stroke-width: 0.6; }
-.bar{ fill: #f0c04a; }
-.person{ fill: #f0c04a; }
-.person.alt{ fill: #caa249; opacity: 0.85; }
-.line{ fill: none; stroke: #f0c04a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 4px rgba(240,192,74,.6)); }
-.drop{ fill: #f0c04a; filter: drop-shadow(0 0 6px rgba(240,192,74,.6)); }
-.bar2{ fill: #f0c04a; }
+.stat-icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(240, 192, 74, 0.35));
+}
 
 /* ---------- Bottom glow beam ---------- */
 
@@ -280,13 +282,6 @@ html, body{
   display: block;
 }
 
-.footer-url{
-  font-size: 12px;
-  color: var(--text-dim);
-  text-decoration: none;
-}
-.footer-url:hover{ color: var(--gold); text-decoration: underline; }
-
 /* ---------- Toast ---------- */
 
 .toast{
@@ -320,5 +315,6 @@ html, body{
 @media (max-width: 420px){
   .dashboard{ grid-template-columns: 1fr; }
   .btn{ width: 100%; justify-content: center; }
+  .btn-icon-only{ width: auto; align-self: center; }
   .links{ flex-direction: column; }
 }
