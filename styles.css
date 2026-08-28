@@ -54,12 +54,12 @@ html, body{
 
 .hero-video-wrap{
   position: relative;
-  width: 100vw;
-  left: 50%;
-  margin-left: -50vw;
+  width: 100%;
   aspect-ratio: 2.8 / 1;
   margin-bottom: -70px;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
 }
 
 .hero-video{
@@ -69,14 +69,6 @@ html, body{
   height: 100%;
   object-fit: cover;
   mix-blend-mode: screen;
-}
-
-.hero-video-wrap::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, var(--bg-black) 100%);
-  pointer-events: none;
 }
 
 .logo-wrap{
