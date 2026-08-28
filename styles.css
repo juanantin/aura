@@ -57,8 +57,9 @@ html, body{
   width: 100vw;
   left: 50%;
   margin-left: -50vw;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   margin-bottom: -10px;
+  overflow: hidden;
 }
 
 .hero-video{
@@ -68,6 +69,14 @@ html, body{
   height: 100%;
   object-fit: cover;
   mix-blend-mode: screen;
+}
+
+.hero-video-wrap::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, var(--bg-black) 100%);
+  pointer-events: none;
 }
 
 .logo-wrap{
@@ -222,10 +231,23 @@ html, body{
 .bottom-glow-wrap{
   position: relative;
   width: 100%;
-  height: 220px;
-  margin: -40px 0 -30px;
+  height: 240px;
+  margin: -40px 0 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 45% 100% at 50% 100%, rgba(255, 216, 130, 0.55) 0%, rgba(246, 199, 74, 0.25) 30%, rgba(246, 199, 74, 0) 70%);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 80%, transparent 100%);
+}
+
+.bottom-glow{
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
 }
 
 /* ---------- Footer ---------- */
@@ -247,16 +269,16 @@ html, body{
 .footer-label{ font-size: 13px; color: var(--text-dim); }
 
 .footer-brand{
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #f4ead0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  padding: 6px 2px;
 }
-.footer-arrow{ color: #f4ead0; }
-.footer-hex{ color: #f4ead0; }
+
+.footer-logo{
+  height: 32px;
+  width: auto;
+  display: block;
+}
 
 .footer-url{
   font-size: 12px;
