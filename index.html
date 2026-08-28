@@ -10,15 +10,17 @@
 </head>
 <body>
 
-<video class="bg-video" autoplay muted loop playsinline preload="auto">
-  <source src="images/aura_vid.mp4" type="video/mp4">
-</video>
 <div class="bg-overlay"></div>
 <canvas id="stars"></canvas>
 
 <main class="page">
 
   <section class="hero">
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="images/aura_vid.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="logo-wrap">
       <img class="logo-img" src="images/aura.png" alt="$AURA">
     </div>
@@ -95,11 +97,7 @@
     </div>
   </section>
 
-  <div class="bottom-glow-wrap" aria-hidden="true">
-    <video class="bottom-glow" autoplay muted loop playsinline preload="auto">
-      <source src="images/aura_fire.mp4" type="video/mp4">
-    </video>
-  </div>
+  <div class="bottom-glow-wrap" aria-hidden="true"></div>
 
   <footer class="footer">
     <div class="footer-col">

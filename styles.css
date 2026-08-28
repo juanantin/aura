@@ -19,24 +19,13 @@ html, body{
   overflow-x: hidden;
 }
 
-.bg-video{
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-  filter: saturate(1.1) contrast(1.05);
-}
-
 .bg-overlay{
   position: fixed;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(255, 200, 80, 0.18) 0%, rgba(120, 80, 10, 0.08) 30%, rgba(5,3,10,0) 60%),
-    linear-gradient(180deg, rgba(6,4,12,0.55) 0%, rgba(9,6,4,0.42) 55%, rgba(14,9,4,0.6) 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(255, 200, 80, 0.14) 0%, rgba(120, 80, 10, 0.06) 30%, rgba(5,3,10,0) 60%),
+    linear-gradient(180deg, rgba(5,3,10,1) 0%, rgba(9,6,4,0.97) 55%, rgba(14,9,4,1) 100%);
 }
 
 #stars{
@@ -62,6 +51,25 @@ html, body{
 /* ---------- Hero / figure ---------- */
 
 .hero{ width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+.hero-video-wrap{
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 16 / 9;
+  margin-bottom: -10px;
+  -webkit-mask-image: radial-gradient(ellipse 65% 70% at 50% 42%, #000 45%, transparent 88%);
+  mask-image: radial-gradient(ellipse 65% 70% at 50% 42%, #000 45%, transparent 88%);
+}
+
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
 
 .logo-wrap{
   position: relative;
@@ -210,29 +218,15 @@ html, body{
 .drop{ fill: #f0c04a; filter: drop-shadow(0 0 6px rgba(240,192,74,.6)); }
 .bar2{ fill: #f0c04a; }
 
-/* ---------- Bottom glow video ---------- */
+/* ---------- Bottom glow beam ---------- */
 
 .bottom-glow-wrap{
   position: relative;
   width: 100%;
-  height: 260px;
-  margin: -60px 0 -30px;
+  height: 220px;
+  margin: -40px 0 -30px;
   pointer-events: none;
-  overflow: hidden;
-  -webkit-mask-image: radial-gradient(ellipse 60% 100% at 50% 60%, #000 40%, transparent 85%);
-  mask-image: radial-gradient(ellipse 60% 100% at 50% 60%, #000 40%, transparent 85%);
-}
-
-.bottom-glow{
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  mix-blend-mode: screen;
-  opacity: 0.85;
+  background: radial-gradient(ellipse 45% 100% at 50% 100%, rgba(255, 216, 130, 0.55) 0%, rgba(246, 199, 74, 0.25) 30%, rgba(246, 199, 74, 0) 70%);
 }
 
 /* ---------- Footer ---------- */
