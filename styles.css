@@ -163,10 +163,6 @@ html, body{
   justify-content: center;
 }
 
-.btn-copy-text{ display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
-.btn-copy-label{ font-size: 15px; }
-.btn-copy-sub{ font-size: 11px; color: var(--text-dim); }
-
 /* ---------- Dashboard ---------- */
 
 .dashboard{
@@ -186,7 +182,7 @@ html, body{
   position: relative;
   border: 1px solid rgba(246, 199, 74, 0.3);
   border-radius: 16px;
-  padding: 18px 16px 54px;
+  padding: 18px 16px 74px;
   text-align: left;
   background: rgba(10, 7, 3, 0.35);
   min-height: 118px;
@@ -216,10 +212,11 @@ html, body{
 
 .stat-icon{
   position: absolute;
-  right: 10px;
+  left: 50%;
   bottom: 8px;
-  width: 48px;
-  height: 48px;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
 }
 .stat-icon img{
   width: 100%;
@@ -314,7 +311,4 @@ html, body{
 
 @media (max-width: 420px){
   .dashboard{ grid-template-columns: 1fr; }
-  .btn{ width: 100%; justify-content: center; }
-  .btn-icon-only{ width: auto; align-self: center; }
-  .links{ flex-direction: column; }
 }
