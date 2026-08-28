@@ -54,12 +54,11 @@ html, body{
 
 .hero-video-wrap{
   position: relative;
-  width: 100%;
-  max-width: 460px;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
   aspect-ratio: 16 / 9;
   margin-bottom: -10px;
-  -webkit-mask-image: radial-gradient(ellipse 65% 70% at 50% 42%, #000 45%, transparent 88%);
-  mask-image: radial-gradient(ellipse 65% 70% at 50% 42%, #000 45%, transparent 88%);
 }
 
 .hero-video{
